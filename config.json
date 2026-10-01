@@ -58,7 +58,7 @@
       "weight": 86400
     },
     "bindIp": "0.0.0.0",
-    "allowIPs": ["127.0.0.1"],
+    "allowIPs": [],
     "maxConnectionsPerIp": 100,
     "maxUnauthenticatedPerIp": 10,
     "loginTimeout": 20,
@@ -87,7 +87,7 @@
     "pendingTimeoutHours": 48,
     "reserve": 100000,
     "minerPayFee": true,
-    "dryRun": true,
+    "dryRun": false,
     "onlyAccounts": [],
     "stopFile": "/root/claude/tdc-nodejs-pool/STOP_PAYMENTS"
   },
