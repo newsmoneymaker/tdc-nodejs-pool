@@ -1,0 +1,160 @@
+{
+  "poolHost": "tdc.pool-pay.com",
+  "coin": "Tidecoin",
+  "symbol": "TDC",
+  "coinUnits": 100000000,
+  "coinDecimalPlaces": 8,
+  "coinDifficultyTarget": 60,
+  "blockchainExplorer": "https://tidecoin.org/explorer/block/{id}",
+  "transactionExplorer": "https://tidecoin.org/explorer/tx/{id}",
+  "logging": {
+    "files": {
+      "level": "info",
+      "directory": "logs",
+      "flushInterval": 5
+    },
+    "console": {
+      "level": "info",
+      "colors": true
+    }
+  },
+  "poolServer": {
+    "enabled": true,
+    "mergedMining": false,
+    "clusterForks": 1,
+    "minerTimeout": 240,
+    "sslCert": "/root/claude/pool/ssl/fullchain.pem",
+    "sslKey": "/root/claude/pool/ssl/privkey.pem",
+    "sslCA": "./chain.pem",
+    "ports": [
+      {
+        "port": 4700,
+        "desc": "TDC stratum (plain TCP, difficulty adjusts to your hashrate)"
+      },
+      {
+        "port": 4701,
+        "desc": "TDC stratum over TLS (encrypted)",
+        "tls": true
+      },
+      {
+        "port": 4702,
+        "desc": "TDC stratum over TLS (alternative port)",
+        "tls": true
+      },
+      {
+        "port": 4703,
+        "desc": "TDC stratum over TLS (alternative port)",
+        "tls": true
+      }
+    ],
+    "banning": {
+      "enabled": true,
+      "time": 600,
+      "invalidPercent": 25,
+      "checkThreshold": 30
+    },
+    "slushMining": {
+      "enabled": true,
+      "weight": 86400
+    },
+    "bindIp": "0.0.0.0",
+    "allowIPs": ["127.0.0.1"],
+    "maxConnectionsPerIp": 100,
+    "maxUnauthenticatedPerIp": 10,
+    "loginTimeout": 20,
+    "maxConnections": 3000,
+    "varDiff": {
+      "startDiff": 2000,
+      "minDiff": 100,
+      "maxDiff": 20000000,
+      "targetTime": 20,
+      "retargetTime": 60,
+      "variancePercent": 30,
+      "maxJump": 100
+    },
+    "jobRefresh": 1000,
+    "poolAddress": "tbc1q7745lx0e7pz5h20trz8p92yykc6ywuj8hy8tqa",
+    "templateRefresh": 30,
+    "coinbaseTag": "/tdc.pool-pay.com/"
+  },
+  "payments": {
+    "enabled": true,
+    "interval": 600,
+    "minPayment": 100000000,
+    "maxTransactionAmount": 100000000000,
+    "maxPaymentsPerRound": 50,
+    "minConfirmations": 6,
+    "pendingTimeoutHours": 48,
+    "reserve": 100000,
+    "minerPayFee": true,
+    "dryRun": true,
+    "onlyAccounts": [],
+    "stopFile": "/root/claude/tdc-nodejs-pool/STOP_PAYMENTS"
+  },
+  "blockUnlocker": {
+    "enabled": true,
+    "interval": 60,
+    "depth": 110,
+    "poolFee": 1,
+    "networkFee": 0,
+    "donations": {
+      "tbc1q7745lx0e7pz5h20trz8p92yykc6ywuj8hy8tqa": 1
+    }
+  },
+  "api": {
+    "enabled": true,
+    "hashrateWindow": 600,
+    "updateInterval": 5,
+    "bindIp": "127.0.0.1",
+    "port": 8137,
+    "blocks": 30,
+    "payments": 30,
+    "password": "a2047691efb506aa2284bec5",
+    "ssl": false,
+    "sslPort": 8120,
+    "sslCert": "./cert.pem",
+    "sslKey": "./privkey.pem",
+    "sslCA": "./chain.pem",
+    "trustProxyIP": true
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6395,
+    "auth": "677eb622a87c6a2146f6f0174e765506",
+    "db": 0,
+    "cleanupInterval": 15
+  },
+  "prices": {
+    "source": "tradeogre",
+    "currency": "USD"
+  },
+  "charts": {
+    "pool": {
+      "hashrate": { "enabled": true, "updateInterval": 60, "stepInterval": 1800, "maximumPeriod": 86400 },
+      "miners": { "enabled": true, "updateInterval": 60, "stepInterval": 1800, "maximumPeriod": 86400 },
+      "workers": { "enabled": true, "updateInterval": 60, "stepInterval": 1800, "maximumPeriod": 86400 },
+      "difficulty": { "enabled": true, "updateInterval": 1800, "stepInterval": 10800, "maximumPeriod": 604800 },
+      "price": { "enabled": true, "updateInterval": 1800, "stepInterval": 10800, "maximumPeriod": 604800 },
+      "profit": { "enabled": true, "updateInterval": 1800, "stepInterval": 10800, "maximumPeriod": 604800 }
+    },
+    "user": {
+      "hashrate": { "enabled": true, "updateInterval": 180, "stepInterval": 1800, "maximumPeriod": 86400 },
+      "worker_hashrate": { "enabled": true, "updateInterval": 60, "stepInterval": 60, "maximumPeriod": 86400 },
+      "payments": { "enabled": true }
+    },
+    "blocks": { "enabled": true, "days": 30 }
+  },
+  "node": {
+    "host": "127.0.0.1",
+    "port": 8766,
+    "user": "tdcpool",
+    "passwordFile": "/root/claude/tdc/rpc.pass"
+  },
+  "hasher": {
+    "path": "/root/claude/tdc-nodejs-pool/hasher/yphash",
+    "threads": 2
+  },
+  "addressVersion": 33,
+  "scriptAddressVersion": 70,
+  "bech32Hrp": "tbc"
+}
