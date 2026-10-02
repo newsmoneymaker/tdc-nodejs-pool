@@ -1,3 +1,4 @@
 node_modules/
 logs/*.log
 STOP_PAYMENTS
+config.json
